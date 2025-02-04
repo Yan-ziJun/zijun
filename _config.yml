@@ -1,6 +1,6 @@
 #描述/签名
 name: "Yan ziJun's blog"
-description: "阎子君 | study"
+description: "阎子君 | Blog"
 
 # 博客logo图片URL，建议尺寸不超过300px × 300px
 avatar: https://yanzijun.github.io/images/zijun.jpg
@@ -8,7 +8,7 @@ avatar: https://yanzijun.github.io/images/zijun.jpg
 favicon: https://yanzijun.github.io/images/zijun.ico
 
 # 网站域名
-# url: blog.zijun.us.kg
+# url: 
 
 # 菜单中的按钮
 navigation:
@@ -22,7 +22,7 @@ navigation:
     url: /tags
 
 # 每页的文章数
-paginate: 4
+paginate: 6
 # 文章简介的区分标记
 excerpt_separator: <!-- more -->
 
@@ -34,7 +34,7 @@ footer-links:
   email: 3239577894@qq.com
   facebook: #https://www.facebook.com/<>
   flickr: #https://www.flickr.com/<>
-  github: #Yan-ziJun
+  github: Yan-ziJun
   instagram: #https://instagram.com/<>
   linkedin: #https://www.linkedin.com/in/<>
   pinterest: #https://www.pinterest.com/<>
