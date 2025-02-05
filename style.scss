@@ -1,27 +1,29 @@
 ---
 ---
-
-//
-// IMPORTS
-//
-
+// 引入重置样式
 @import "reset";
+// 引入open-color配色方案
 @import "open-color";
+// 引入自定义变量
 @import "variables";
 
-// Syntax highlighting @import is at the bottom of this file
+// 语法高亮的导入放在文件底部
+// ... 否则，它会将大量代码放在CSS文件的顶部，使找到文件的开始变得困难
+// @import "highlights";
+// @import "gitalk";
 
-/**************/
-/* BASE RULES */
-/**************/
-
+// 设置HTML元素的基础字体大小
 html {
   font-size: $base-font-size;
 }
 
+// 设置body的基本样式
 body {
+  // 使用基础字体
   font-family: $base-font;
+  // 设置基础颜色
   color: $base-color;
+  // 设置行高为1.7倍字体大小
   line-height: 1.7em;
 }
 
