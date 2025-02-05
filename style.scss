@@ -378,32 +378,55 @@ img {
 //
 
 .wrapper-sidebar {
+  // 设置宽度为30%
   width: 30%;
-	-webkit-background-size: cover;
-	background-size: cover;
-	background-color: $background-color;
-	height: 100%;
-	top: 0;
-	left:0;
-	position: fixed;
-	z-index: 4;
+  // 设置背景图片大小为覆盖整个区域
+  -webkit-background-size: cover;
+  background-size: cover;
+  // 设置背景颜色为背景颜色
+  background-color: $background-color;
+  // 设置高度为100%
+  height: 100%;
+  // 设置顶部和左边距为0
+  top: 0;
+  left: 0;
+  // 设置定位方式为固定
+  position: fixed;
+  // 设置z-index为4
+  z-index: 4;
+  // 设置右边框为1px宽的实线，颜色为分隔符颜色
   border-right: 1px solid $divider-color;
 
+  // 在移动设备上调整样式
   @include mobile {
+    // 设置宽度为100%
     width: 100%;
+    // 设置高度为自动
     height: auto;
+    // 设置底部内边距为24px
     padding-bottom: 24px;
+    // 设置定位方式为相对
     position: relative;
+    // 设置底部边框为1px宽的实线，颜色为分隔符颜色
     border-bottom: 1px solid $divider-color;
+    // 去掉右边框
     border-right: 0;
   }
 }
 
+// 设置侧边栏的样式
 .sidebar {
+  // 设置上下内边距为20px
   padding: 20px 0;
 
+  // 在移动设备上调整文本对齐方式
   @include mobile {
+    // 设置文本居中对齐
     text-align: center;
+    // 设置为块元素
+    display: block;
+    // 设置左右外边距为自动，使其居中
+    margin: 0 auto;
   }
 }
 
