@@ -1,4 +1,3 @@
-// 注释掉的前端Matter
 ---
 ---
 
@@ -6,984 +5,637 @@
 // IMPORTS
 //
 
-// 引入重置样式
 @import "reset";
-// 引入open-color配色方案
 @import "open-color";
-// 引入自定义变量
 @import "variables";
 
-// 语法高亮的导入放在文件底部
-// ... 否则，它会将大量代码放在CSS文件的顶部，使找到文件的开始变得困难
-// @import "highlights";
-// @import "gitalk";
+// Syntax highlighting @import is at the bottom of this file
 
 /**************/
 /* BASE RULES */
 /**************/
 
-// 设置HTML元素的基础字体大小
 html {
   font-size: $base-font-size;
 }
 
-// 设置body的基本样式
 body {
-  // 使用基础字体
   font-family: $base-font;
-  // 设置基础颜色
   color: $base-color;
-  // 设置行高为1.7倍字体大小
   line-height: 1.7em;
 }
 
-// 设置容器的基本样式
 .container {
-  // 将容器水平居中
   margin: 0 auto;
-  // 设置最大宽度为1000px
   max-width: 1000px;
-  // 设置内边距为上下0，左右20px
   padding: 0 20px;
-  // 设置宽度为100%
   width: 100%;
 }
 
-// 设置所有标题（h1到h6）的基本样式
 h1, h2, h3, h4, h5, h6 {
-  // 设置行高为2倍字体大小
   line-height: 2em;
-  // 设置上下外边距为1em，底部外边距为16px
   margin: 1em 0 16px;
-  // 设置内边距为0
   padding: 0;
 
-  // 在移动设备上调整行高
   @include mobile {
     line-height: 1.6em;
   }
 }
 
-// 设置h1, h2, h3, h5的字体加粗
 h1, h2, h3, h5 {
   font-weight: bold;
 }
 
-// 设置h1的特定样式
 h1 {
-  // 设置字体大小为30px
   font-size: 30px;
-  // 设置内部链接颜色继承自父元素颜色
   a {
     color: inherit;
   }
 }
 
-// 设置h2的特定样式
 h2 {
-  // 设置字体大小为24px
   font-size: 24px;
 }
 
-// 设置h3的特定样式
 h3 {
-  // 设置字体大小为20px
   font-size: 20px;
 }
 
-// 设置h4的特定样式
 h4 {
-  // 设置字体大小为20px
   font-size: 20px;
-  // 设置颜色为基础颜色的浅色版
   color: $base-lighten-color;
 }
 
-// 设置h6的特定样式
 h6 {
-  // 设置颜色为基础颜色的浅色版
   color: $base-lighten-color;
 }
 
-// 设置段落的基本样式
 p {
-  // 设置文本颜色
   color: $text-color;
-  // 设置上下外边距为1em
   margin: 1em 0;
 }
 
-// 设置链接的基本样式
 a {
-  // 设置链接颜色
   color: $link-color;
-  // 去掉下划线
   text-decoration: none;
-  // 设置鼠标悬停时的光标样式为指针
   cursor: pointer;
-  // 设置过渡效果，所有属性在0.5秒内平滑过渡
   -webkit-transition: all 0.5s;
   -moz-transition: all 0.5s;
   -ms-transition: all 0.5s;
   -o-transition: all 0.5s;
   transition: all 0.5s;
 
-  // 设置鼠标悬停和激活时的样式
   &:hover, &:active {
-    // 设置悬停或激活时的链接颜色
     color: $link-lighten-color;
   }
 }
 
-// 设置斜体样式
 em, i {
-  // 设置字体样式为italic
   font-style: italic;
 }
 
-// 设置粗体样式
 strong, b {
-  // 设置字体加粗
   font-weight: bold;
 }
 
-// 设置下标样式
 sub {
-  // 设置垂直对齐方式为下标
   vertical-align: sub;
-  // 设置字体大小为更小
   font-size: smaller;
 }
 
-// 设置上标样式
 sup {
-  // 设置垂直对齐方式为上标
   vertical-align: super;
-  // 设置字体大小为更小
   font-size: smaller;
 }
 
-// 设置水平分割线的样式
 hr {
-  // 去掉边框
   border: 0;
-  // 设置顶部边框为1px宽的实线，颜色为分隔符颜色
   border-top: 1px solid $divider-color;
-  // 设置上下外边距为1.5em，左右自动居中
   margin: 1.5em auto;
 }
 
-// 设置有序列表和无序列表的基本样式
 ol, ul {
-  // 设置列表项的样式
   > li {
-    // 设置伪元素:before的位置为绝对定位
     &:before {
       position: absolute;
-      // 设置伪元素宽度为$li-bullets-width
       width: $li-bullets-width;
-      // 设置左边距为负的$li-bullets-width，使项目符号在文本左侧
       margin-left: -$li-bullets-width;
-      // 设置为内联块元素
       display: inline-block;
-      // 设置盒模型为border-box
       box-sizing: border-box;
-      // 设置文本右对齐
       text-align: right;
     }
   }
 }
 
-// 设置无序列表的特定样式
 ul {
-  // 设置列表项符号:before的内容
   > li:before {
-    // 使用Unicode字符2022作为项目符号
     content: "\2022";
-    // 设置右边距为$ul-bullets-right-space
     padding-right: $ul-bullets-right-space;
-    // 设置字体系列为$ul-bullets-font
     font-family: $ul-bullets-font;
-    // 设置字体大小为$ul-bullets-font-size
     font-size: $ul-bullets-font-size;
-    // 设置行高为$ul-bullets-font-line-height
     line-height: $ul-bullets-font-line-height;
   }
 }
 
-// 设置有序列表的特定样式
 ol {
-  // 重置计数器section
   counter-reset: section;
 
-  // 设置列表项符号:before的内容
   > li:before {
-    // 增加计数器section的值
     counter-increment: section;
-    // 使用计数器作为项目符号，格式为"计数器值."
     content: counter(section) ".";
-    // 设置右边距为$ol-bullets-right-space
     padding-right: $ol-bullets-right-space;
-    // 设置字体系列为$ol-bullets-font
     font-family: $ol-bullets-font;
-    // 设置字体大小为$ol-bullets-font-size
     font-size: $ol-bullets-font-size;
-    // 设置行高为$ol-bullets-font-line-height
     line-height: $ol-bullets-font-line-height;
   }
 }
 
-// 设置有序列表和无序列表的额外样式
 ol, ul {
-  // 设置列表项的样式
   > li {
-    // 设置上下外边距为0，左右外边距为$li-bullets-width和底部$li-bottom-space
     margin: 0 auto $li-bottom-space $li-bullets-width;
-    // 设置行高为$li-line-height
     line-height: $li-line-height;
 
-    // 设置嵌套列表的样式
     > ol,
     > ul {
-      // 设置顶部外边距为$li-bottom-space
       margin-top: $li-bottom-space;
     }
   }
 }
 
-// 设置列表项内的嵌套有序列表和无序列表的样式
 li {
-  // 设置嵌套列表的样式
   > ol,
   > ul {
-    // 设置嵌套列表项的样式
     > li {
-      // 设置字体大小为当前字体大小的$li-child-size-ratio倍
       font-size: ($li-child-size-ratio * 1em);
-      // 设置上下外边距为0，左右外边距为$li-bullets-width和底部$li-bottom-space的$li-child-size-ratio倍
       margin: 0 auto ($li-bottom-space * $li-child-size-ratio) ($li-bullets-width * $li-child-size-ratio);
     }
   }
 }
 
-// 设置定义列表的样式
 // Definition list
 dt {
-  // 设置为左浮动
   float: left;
-  // 设置宽度为$dt-width
   width: $dt-width;
-  // 设置溢出时自动处理
   overflow: auto;
-  // 清除浮动
   clear: left;
-  // 设置文本右对齐
   text-align: right;
-  // 设置文本不换行
   white-space: nowrap;
-  // 设置字体加粗
   font-weight: bold;
-  // 设置底部外边距为$li-bottom-space
   margin-bottom: $li-bottom-space;
 
-  // 在移动设备上调整宽度
   @include mobile {
     width: 120px;
   }
 }
 
-// 设置定义列表项的样式
 dd {
-  // 设置左边距为$dd-position
   margin-left: $dd-position;
-  // 设置底部外边距为$li-bottom-space
   margin-bottom: $li-bottom-space;
 
-  // 在移动设备上调整左边距
   @include mobile {
     margin-left: 140px;
   }
 }
 
-// 设置表格的基本样式
 // Table
 table {
-  // 设置底部外边距为1rem
   margin-bottom: 1rem;
-  // 设置宽度为100%
   width: 100%;
-  // 设置边框为1px宽的实线，颜色为表格边框颜色
   border: 1px solid $table-border-color;
-  // 设置边框合并为单一线条
   border-collapse: collapse;
 }
 
-// 设置表格单元格的基本样式
 td, th {
-  // 设置内边距为.25rem和.5rem
   padding: .25rem .5rem;
-  // 设置边框为1px宽的实线，颜色为表格边框颜色
   border: 1px solid $table-border-color;
 }
 
-// 设置表格奇数行的背景颜色
 tbody tr:nth-child(odd) td,
 tbody tr:nth-child(odd) th {
-  // 设置背景颜色为表格背景颜色
   background-color: $table-background-color;
 }
 
-// 设置引用块的基本样式
 // Blockquote
 blockquote {
-  // 设置字体加粗为300
   font-weight: 300;
-  // 设置左边距为1.4rem
   padding: 0 0 0 1.4rem;
-  // 设置右边距为2rem，底部外边距为1rem，顶部外边距为0
   margin: 0 2rem 1rem 0;
-  // 设置左边框为.2em宽的实线，颜色为引用块边框颜色
   border-left: .2em solid $blockquote-border-color;
 
-  // 设置引用块内的段落样式
   p {
-    // 设置文本颜色为引用块颜色
     color: $blockquote-color;
   }
 
-  // 设置引用块内最后一个段落的样式
   p:last-child {
-    // 去掉底部外边距
     margin-bottom: 0;
   }
 }
 
-// 设置脚注链接的样式
 // Footnote
 a.footnote {
-  // 设置脚注链接的基本样式
   &,
   .post p &,
   .post ol &,
   .post ul & {
-    // 设置左右外边距为3px
     margin: 0 3px;
-    // 设置左右内边距为2px
     padding: 0 2px;
-    // 设置字体大小为小字体大小
     font-size: $small-font-size;
-    // 设置文本居中对齐
     text-align: center;
-    // 设置边框为1px宽的实线，颜色为脚注链接边框颜色
     border: 1px solid $footnote-link-border-color;
-    // 设置边框圆角为2px
     border-radius: 2px;
-    // 设置文本描边为0.25px
     -webkit-text-stroke: 0.25px;
-    // 设置过渡效果，所有属性在0.2秒内平滑过渡，使用ease-out缓动函数
     -webkit-transition: 0.2s ease-out all;
-    // 去掉下划线
     text-decoration: none;
 
-    // 设置鼠标悬停时的背景颜色
     &:hover {
       background: $footnote-link-background-over-color;
     }
   }
 }
 
-// 设置脚注的样式
 .footnotes {
-  // 设置顶部边框为1px宽的实线，颜色为分隔符颜色
   border-top: 1px solid $divider-color;
-  // 设置字体大小为小字体大小
   font-size: $small-font-size;
 }
 
-// 设置图片的基本样式
 // Image
 img {
-  // 设置为块元素
   display: block;
-  // 设置最大宽度为100%
   max-width: 100%;
-  // 设置下边距为1em
   margin: 0 0 1em;
-  // 设置圆角为5px
   border-radius: 5px;
 }
 
-// 修正Google Translate弹出框中图片的最大宽度
 // Fixes images in popup boxes from Google Translate
 .gmnoprint img {
-  // 设置最大宽度为无限制
   max-width: none;
 }
 
-// 设置文本选择的颜色
 // Specify the color of the selection
 ::-moz-selection {
-  // 设置背景颜色为选择背景颜色
+//  color: $selection-color;
   background: $selection-background-color;
 }
 ::selection {
-  // 设置背景颜色为选择背景颜色
+//  color: $selection-color;
   background: $selection-background-color;
 }
 
-// Nicolas Gallagher的micro clearfix hack
+// Nicolas Gallagher's micro clearfix hack
 // http://nicolasgallagher.com/micro-clearfix-hack/
 .clearfix:before,
 .clearfix:after {
-    // 设置内容为空格
     content: " ";
-    // 设置为表格元素
     display: table;
 }
 
 .clearfix:after {
-    // 清除浮动
     clear: both;
 }
 
-// 设置文本对齐方式
 // Alignment
 .center {
-  // 设置文本居中对齐
   text-align: center;
 
-  // 设置居中图片的样式
   &-image {
-    // 设置左右外边距为自动，使其居中
     margin: 0 auto;
-    // 设置为块元素
     display: block;
   }
 }
 
-// 设置文本右对齐的样式
 .right {
-  // 设置文本右对齐
-  text-align: right;
+  text-align: right
 }
 
 /*********************/
 /* LAYOUT / SECTIONS */
 /*********************/
 
-// 设置侧边栏包装器的样式
+//
 // .sidebar
+//
+
 .wrapper-sidebar {
-  // 设置宽度为30%
   width: 30%;
-  // 设置背景图片大小为覆盖整个区域
-  -webkit-background-size: cover;
-  background-size: cover;
-  // 设置背景颜色为背景颜色
-  background-color: $background-color;
-  // 设置高度为100%
-  height: 100%;
-  // 设置顶部和左边距为0
-  top: 0;
-  left: 0;
-  // 设置定位方式为固定
-  position: fixed;
-  // 设置z-index为4
-  z-index: 4;
-  // 设置右边框为1px宽的实线，颜色为分隔符颜色
+	-webkit-background-size: cover;
+	background-size: cover;
+	background-color: $background-color;
+	height: 100%;
+	top: 0;
+	left:0;
+	position: fixed;
+	z-index: 4;
   border-right: 1px solid $divider-color;
 
-  // 在移动设备上调整样式
   @include mobile {
-    // 设置宽度为100%
     width: 100%;
-    // 设置高度为自动
     height: auto;
-    // 设置底部内边距为24px
     padding-bottom: 24px;
-    // 设置定位方式为相对
     position: relative;
-    // 设置底部边框为1px宽的实线，颜色为分隔符颜色
     border-bottom: 1px solid $divider-color;
-    // 去掉右边框
     border-right: 0;
   }
 }
 
-// 设置侧边栏的样式
 .sidebar {
-  // 设置上下内边距为20px
   padding: 20px 0;
 
-  // 在移动设备上调整文本对齐方式
   @include mobile {
-    // 设置文本居中对齐
     text-align: center;
-    // 设置为块元素
-    display: block;
-    // 设置左右外边距为自动，使其居中
-    margin: 0 auto;
   }
 }
 
-// 设置站点信息的样式
 .site-info {
-  // 设置文本居中对齐
-  text-align: center;
-  // 设置上下外边距为100px和0
+  text-align:center;
   margin: 100px auto 0;
 
-  // 在移动设备上调整样式
   @include mobile {
-    // 取消浮动
     float: none;
-    // 设置为块元素
     display: block;
-    // 设置左右外边距为自动，使其居中
     margin: 0 auto;
   }
 
-  // 设置站点头像的样式
   .site-avatar {
-    // 设置左右外边距为自动，使其居中
-    margin: 0 auto;
-    // 设置为块元素
+    margin:0 auto;
     display: block;
-    // 设置最大宽度为200px
     max-width: 200px;
-    // 设置最大高度为200px
     max-height: 200px;
 
-    // 在移动设备上调整最大宽度和高度
     @include mobile {
-      // 设置最大宽度为120px
       max-width: 120px;
-      // 设置最大高度为120px
       max-height: 120px;
     }
 
-    // 设置站点头像内的图片样式
     img {
-      // 设置为内联块元素
       display: inline-block;
-      // 设置圆角为2px
       border-radius: 2px;
     }
   }
 }
 
-// 设置站点名称的样式
 .site-name {
-  // 设置左右外边距为自动，使其居中
   margin: 0 auto;
-  // 设置文本颜色为基础颜色
   color: $base-color;
-  // 设置鼠标悬停时的光标样式为指针
   cursor: pointer;
-  // 使用基础字体
   font-family: $base-font;
-  // 设置字体加粗为700
   font-weight: 700;
-  // 设置字体大小为28px
   font-size: 28px;
-  // 设置字母间距为1px
   letter-spacing: 1px;
 }
 
-// 设置站点描述的样式
 .site-description {
-  // 设置左右外边距为自动，使其居中
   margin: 15px auto;
-  // 设置文本颜色为基础颜色的浅色版
   color: $base-lighten-color;
-  // 设置字体大小为16px
   font-size: 16px;
 
-  // 在移动设备上调整顶部外边距
   @include mobile {
-    // 设置顶部外边距为10px
     margin: 10px auto;
   }
 }
 
-// 设置导航列表的样式
-.navlist {
-  // 设置文本居中对齐
-  text-align: center;
+.navlist{
+  text-align:center;
 }
 
-// 设置导航栏的基本样式
 nav {
-  // 设置为块元素
   display: block;
-  // 设置顶部外边距为23px
   margin-top: 23px; // @TODO: Vertically middle align
-  // 使用基础字体
   font-family: $base-font;
-  // 设置字体加粗为500
   font-weight: 500;
-  // 设置字体大小为18px
   font-size: 18px;
 
-  // 在移动设备上调整顶部外边距和字体大小
   @include mobile {
-    // 设置顶部外边距为9px
     margin-top: 9px;
-    // 设置字体大小为16px
     font-size: 16px;
   }
 
-  // 设置导航栏内的链接样式
   a {
-    // 设置左右外边距为10px
     margin: 0 10px;
-    // 设置文本右对齐
     text-align: right;
-    // 设置字体加粗为300
     font-weight: 300;
-    // 设置字母间距为1px
     letter-spacing: 1px;
 
-    // 在移动设备上调整颜色
     @include mobile {
-      // 设置颜色为链接颜色
+      margin: 0 10px;
       color: $link-color;
     }
   }
 }
 
-// 设置内容包装器的样式
 // content
+
 .wrapper-content {
-  // 设置为右浮动
   float: right;
-  // 设置宽度为70%
   width: 70%;
 
-  // 在移动设备上取消浮动并设置宽度为100%
   @include mobile {
-    // 取消浮动
     float: none;
-    // 设置宽度为100%
     width: 100%;
   }
 }
 
-// 设置文章的基本样式
 // Posts
-.posts {
-  // 设置标签的样式
+
+.posts{
+
   .tag {
-    // 设置为内联元素
     display: inline;
-    // 设置字体加粗为300
     font-weight: 300;
-    // 设置字体大小为小字体大小
     font-size: $small-font-size;
 
-    // 设置标签内的伪元素:before的内容为空
     li:before {
       content: '';
     }
 
-    // 设置标签内的列表项样式
     li {
-      // 设置为内联元素
       display: inline;
-      // 去掉外边距
       margin: 0;
 
-      // 设置标签内的链接样式
       > a {
-        // 设置左右外边距为3px和0，顶部底部外边距为.5px
         margin: 3px 3px 3px 0;
-        // 设置左右内边距为.5px和4px
         padding: .5px 4px;
-        // 设置文本颜色为基础颜色
         color: $base-color;
-        // 设置背景颜色为标签背景颜色
         background-color: $tag-index-label-background-color;
-        // 设置圆角为3px
         border-radius: 3px;
 
-        // 设置鼠标悬停时的背景颜色和文本颜色
         &:hover {
-          // 设置文本颜色为链接颜色
           color: $link-color;
-          // 设置背景颜色为链接背景悬停颜色
-          background-color: $link-bghv-color;
+          background-color:$link-bghv-color;
         }
       }
     }
   }
 }
 
-// 设置文章的底部填充和边框
 .posts > .post {
-  // 设置底部填充为2em
   padding-bottom: 2em;
-  // 设置底部边框为1px宽的实线，颜色为分隔符颜色
   border-bottom: 1px solid $divider-color;
 }
 
-// 移除最后一篇文章的底部填充和边框
 .posts > .post:last-child {
-  // 设置底部填充为1em
   padding-bottom: 1em;
-  // 移除底部边框
   border-bottom: none;
 }
 
-// 设置日期的样式
 .date {
-  // 设置字体加粗为300
   font-weight: 300;
-  // 设置字体大小为小字体大小
   font-size: $small-font-size;
-  // 设置文本颜色为基础颜色的浅色版
   color: $base-lighten-color;
-  // 设置右边距为4px
   margin-right: 4px;
 }
 
-// 设置文章内的特定样式
+
 .post {
-  // 设置文章内h1的样式
+
   h1 {
-    // 设置底部外边距为.1em
     margin-bottom: .1em;
   }
 
-  // 设置评论的样式
+
   .comments {
-    // 设置顶部外边距为10px
     margin-top: 10px;
   }
 
-  // 设置“阅读更多”链接的样式
   .read-more {
-    // 设置字体大小为15px
     font-size: 15px;
   }
 }
 
-// 设置页面的基本样式
 .page {
-//  // 设置顶部外边距为40px
 //  margin: 40px;
 
-  // 在移动设备上调整顶部外边距
   @include mobile {
-//    // 设置顶部外边距为24px
 //    margin: 24px;
   }
 }
 
-// 设置目录的样式
+
+
 // TOC
+
 .toc {
-  // 设置宽度为240px
   width: 240px;
-  // 设置高度为100%
   height: 100%;
-  // 设置左边距为30%
   left: 30%;
-  // 设置定位方式为固定
   position: fixed;
-  // 设置z-index为4
   z-index: 4;
-  // 设置左右内边距为20px，顶部内边距为60px
   padding: 60px 20px 0 20px;
   
-  // 设置目录标题的样式
-  &:before {
-    // 设置内容为“目录”
-    content: "目录";
-    // 设置上下外边距为0，左右外边距为1em
+  &:before{
+    content:"目录";
     margin: 0 0 1em 1em;
-    // 设置字体加粗为700
     font-weight: 700;
-    // 设置字体大小为1.2em
     font-size: 1.2em;
-    // 设置为块元素
     display: block;
-    // 设置底部内边距为0.6em
     padding-bottom: 0.6em;
-    // 设置底部边框为3px宽的双线，颜色为分隔符颜色
     border-bottom: 3px double $divider-color;
   }
 
-  // 设置目录列表项的伪元素:before的内容为空
-  li:before {
-    content: "";
+  li:before{
+    content:"";
   }
 
-  // 在移动设备上隐藏目录
-  @include mobile {
-    display: none;
+  @include mobile{
+    display:none;
   }
 }
 
-// 设置包含目录的内容的左侧填充
-@media screen and (max-width: 2200px) and (min-width: 1200px) {
-  .withtoc {
-    // 设置左侧填充为260px
+@media screen and (max-width:2200px) and (min-width:1200px){
+  .withtoc{
     padding-left: 260px;
   }
 }
 
-// 设置分页导航的基本样式
 .pagination {
-  // 设置顶部边框为1px宽的实线，颜色为分隔符颜色
   border-top: 1px solid $divider-color;
-  // 设置字体加粗为300
   font-weight: 300;
-  // 设置上下内边距为40px
   padding: 40px 0;
-  // 设置宽度为100%
   width: 100%;
-  // 设置为内联块元素
   display: inline-block;
 
-  // 在移动设备上调整样式
   @include mobile {
-    // 设置字体大小为小字体大小
     font-size: $small-font-size;
-    // 设置上下内边距为24px
     padding: 24px 0;
   }
 
-  // 设置分页导航内的上一页链接样式
   > .prev {
-    // 设置为左浮动
     float: left;
-    // 设置宽度为50%
     width: 50%;
-    // 设置链接样式
     a {
-      // 设置文本颜色为基础颜色的浅色版
       color: $base-lighten-color;
-      // 设置边框为1px宽的实线，颜色为分隔符颜色
       border: 1px solid $divider-color;
-      // 设置左右内边距为10px和20px，上下内边距为10px
       padding: 10px 20px;
-      // 设置背景颜色为背景颜色
       background: $background-color;
 
-      // 设置鼠标悬停和聚焦时的样式
       &:hover, &:focus {
-        // 设置文本颜色为链接颜色的浅色版
         color: $link-lighten-color;
-        // 设置边框为1px宽的实线，颜色为链接颜色的浅色版
         border: 1px solid $link-lighten-color;
-        // 设置背景颜色为链接背景悬停颜色
         background-color: $link-bghv-color;
       }
     }
   }
 
-  // 设置分页导航内的下一页链接样式
   > .next {
-    // 设置为右浮动
     float: right;
-    // 设置文本右对齐
     text-align: right;
-    // 设置宽度为50%
     width: 50%;
-    // 设置链接样式
     a {
-      // 设置文本颜色为基础颜色的浅色版
       color: $base-lighten-color;
-      // 设置边框为1px宽的实线，颜色为分隔符颜色
       border: 1px solid $divider-color;
-      // 设置左右内边距为10px和20px，上下内边距为10px
       padding: 10px 20px;
-      // 设置背景颜色为背景颜色
       background: $background-color;
 
-      // 设置鼠标悬停和聚焦时的样式
       &:hover, &:focus {
-        // 设置文本颜色为链接颜色的浅色版
         color: $link-lighten-color;
-        // 设置边框为1px宽的实线，颜色为链接颜色的浅色版
         border: 1px solid $link-lighten-color;
-        // 设置背景颜色为链接背景悬停颜色
         background-color: $link-bghv-color;
       }
     }
   }
 }
 
-// 设置归档页面的基本样式
 // Archive
 .archive {
-  // 设置链接颜色为基础颜色
   a {
     color: $base-color;
   }
-  // 设置时间标签的颜色、大小、加粗和左边距
   time {
-    // 设置文本颜色为基础颜色的浅色版
     color: $base-lighten-color;
-    // 设置字体大小为小字体大小
     font-size: $small-font-size;
-    // 设置字体加粗为300
     font-weight: 300;
-    // 设置左边距为3px
     margin-left: 3px;
   }
 }
 
-// 设置标签页面的基本样式
 // Tags
 .tags > .label {
-  // 设置标签内的伪元素:before的内容为空
   > li:before {
     content: "";
   }
 
-  // 设置标签内的列表项样式
   > li {
-    // 去掉外边距
     margin: 0;
-    // 设置字体大小为小字体大小
     font-size: $small-font-size;
-    // 设置字体加粗为300
     font-weight: 300;
-    // 设置为内联元素
     display: inline;
 
-    // 设置标签内的链接样式
     > a {
-      // 设置为内联块元素
       display: inline-block;
-      // 设置外边距为1px
       margin: 1px;
-      // 设置文本颜色为基础颜色
       color: $base-color;
-      // 设置背景颜色为标签背景颜色
       background-color: $tag-index-label-background-color;
-      // 设置圆角为3px
       border-radius: 3px;
 
-      // 设置鼠标悬停时的背景颜色
       &:hover {
-        // 设置背景颜色为链接背景悬停颜色
         background-color: $link-bghv-color;
       }
 
-      // 设置标签内的span样式
       span {
-        // 设置为左浮动
         float: left;
-        // 设置左右内边距为.5px和5px
         padding: .5px 5px;
 
-        // 设置计数span的样式
         &.count {
-          // 设置背景颜色为标签计数背景颜色
           background-color: $tag-index-count-background-color;
-          // 设置圆角为0 3px 3px 0
           border-radius: 0 3px 3px 0;
 
         }
@@ -992,135 +644,85 @@ nav {
   }
 }
 
-// 设置标签页面内的标签样式
 .tags > .tag {
-  // 设置链接颜色为基础颜色
   a {
     color: $base-color;
   }
-  // 设置时间标签的颜色、大小、加粗和左边距
   time {
-    // 设置文本颜色为基础颜色的浅色版
     color: $base-lighten-color;
-    // 设置字体大小为小字体大小
     font-size: $small-font-size;
-    // 设置字体加粗为300
     font-weight: 300;
-    // 设置左边距为3px
     margin-left: 3px;
   }
 }
 
-// 设置页脚的基本样式
+
+
 // Footer
 .wrapper-footer-desktop {
-  // 设置顶部外边距为50px
   margin-top: 50px;
-  // 设置顶部边框为1px宽的实线，颜色为页脚边框颜色
   border-top: 1px solid $footer-border-color;
-  // 设置背景颜色为页脚背景颜色
   background-color: $footer-background-color;
-  // 设置定位方式为绝对定位
   position: absolute;
-  // 清除浮动
-  clear: both;
-  // 设置宽度为100%
-  width: 100%;
-  // 设置底部为0
-  bottom: 0;
+  clear:both;
+  width:100%;
+  bottom:0;
   
-  // 在移动设备上隐藏页脚
   @include mobile {
     display: none;
   }
 
 }
 
-// 设置移动设备上的页脚样式
 .wrapper-footer-mobile {
-  // 设置为隐藏元素
   display: none;
   
-  // 在移动设备上显示页脚
   @include mobile {
-    // 设置为块元素
     display: block;
-    // 设置宽度为100%
     width: 100%;
-    // 设置顶部边框为1px宽的实线，颜色为页脚边框颜色
     border-top: 1px solid $footer-border-color;
-    // 设置背景颜色为页脚背景颜色
     background-color: $footer-background-color;
   }
 }
 
-// 设置页脚的具体样式
 footer {
-  // 设置上下内边距为20px
   padding: 20px 0;
-  // 设置文本居中对齐
   text-align: center;
 
-  // 设置页脚内的段落样式
   p {
-    // 设置字体大小为小字体大小
     font-size: $small-font-size;
-    // 设置文本颜色为基础颜色的浅色版
     color: $base-lighten-color;
   }
 
-  // 设置SVG图标列表的样式
   .svg-icon {
-    // 设置为块元素
     display: block;
-    // 设置字体大小为0
     font-size: 0;
-    // 设置列表样式为无
     list-style: none;
-    // 去掉外边距
     margin: 0;
-    // 设置文本居中对齐
     text-align: center;
 
-    // 设置SVG图标列表项的样式
     li {
-      // 设置为内联块元素
       display: inline-block;
-      // 设置左右外边距为10px
       margin: 10px;
     }
 
-    // 设置SVG图标的样式
     svg {
-      // 设置高度为20px
       height: 20px;
-      // 设置宽度为20px
       width: 20px;
-      // 设置填充颜色为基础颜色的浅色版
       fill: $base-lighten-color;
       
-      // 设置鼠标悬停时的填充颜色
       &:hover {
-        // 设置填充颜色为链接颜色的浅色版
         fill: $link-lighten-color;
       }
     }
 
-    // 设置SVG图标的em元素样式
     em {
-      // 设置字体大小为18px
       font-size: 18px;
-      // 设置行高为1.5
       line-height: 1.5;
-      // 设置顶部外边距为-.75em
       margin-top: -.75em;
-      // 设置为块元素
-      display: block;
-      // 设置文本居中对齐
+      position: absolute;
       text-align: center;
-      // 设置顶部为50%
       top: 50%;
-      // 设置右、下、左边距为0
       right: 0;
       bottom: 0;
       left: 0;
@@ -1128,7 +730,7 @@ footer {
   }
 }
 
-// 引入语法高亮样式
+// Settled on moving the import of syntax highlighting to the bottom of the CSS
+// ... Otherwise it really bloats up the top of the CSS file and makes it difficult to find the start
 @import "highlights";
-// 引入gitalk样式
 @import "gitalk";
