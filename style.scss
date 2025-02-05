@@ -27,92 +27,139 @@ body {
   line-height: 1.7em;
 }
 
+// 设置容器的基本样式
 .container {
+	// 将容器水平居中
   margin: 0 auto;
+	// 设置最大宽度为1000px
   max-width: 1000px;
+	// 设置内边距为上下0，左右20px
   padding: 0 20px;
+	// 设置宽度为100%
   width: 100%;
 }
 
+// 设置所有标题（h1到h6）的基本样式
 h1, h2, h3, h4, h5, h6 {
+	// 设置行高为2倍字体大小
   line-height: 2em;
+	// 设置上下外边距为1em，底部外边距为16px
   margin: 1em 0 16px;
+	// 设置内边距为0
   padding: 0;
 
+// 在移动设备上调整行高
   @include mobile {
     line-height: 1.6em;
   }
 }
 
+// 设置h1, h2, h3, h5的字体加粗
 h1, h2, h3, h5 {
   font-weight: bold;
 }
 
+// 设置h1的特定样式
 h1 {
+	// 设置字体大小为30px
   font-size: 30px;
+	// 设置内部链接颜色继承自父元素颜色
   a {
     color: inherit;
   }
 }
 
+// 设置h2的特定样式
 h2 {
+	// 设置字体大小为24px
   font-size: 24px;
 }
 
+// 设置h3的特定样式
 h3 {
+	// 设置字体大小为20px
   font-size: 20px;
 }
 
+// 设置h4的特定样式
 h4 {
+	// 设置字体大小为20px
   font-size: 20px;
+	// 设置颜色为基础颜色的浅色版
   color: $base-lighten-color;
 }
 
+// 设置h6的特定样式
 h6 {
+	// 设置颜色为基础颜色的浅色版
   color: $base-lighten-color;
 }
 
+// 设置段落的基本样式
 p {
+	// 设置文本颜色
   color: $text-color;
+	// 设置上下外边距为1em
   margin: 1em 0;
 }
 
+// 设置链接的基本样式
 a {
+	// 设置链接颜色
   color: $link-color;
+	// 去掉下划线
   text-decoration: none;
+	// 设置鼠标悬停时的光标样式为指针
   cursor: pointer;
+	// 设置过渡效果，所有属性在0.5秒内平滑过渡
   -webkit-transition: all 0.5s;
   -moz-transition: all 0.5s;
   -ms-transition: all 0.5s;
   -o-transition: all 0.5s;
   transition: all 0.5s;
 
+	// 设置鼠标悬停和激活时的样式
   &:hover, &:active {
+		// 设置悬停或激活时的链接颜色
     color: $link-lighten-color;
   }
 }
 
+// 设置斜体样式
 em, i {
+	// 设置字体样式为italic
   font-style: italic;
 }
 
+// 设置粗体样式
 strong, b {
+	// 设置字体加粗
   font-weight: bold;
 }
 
+// 设置下标样式
 sub {
+	// 设置垂直对齐方式为下标
   vertical-align: sub;
+	// 设置字体大小为更小
   font-size: smaller;
 }
 
+// 设置上标样式
 sup {
+	// 设置垂直对齐方式为上标
   vertical-align: super;
+	// 设置字体大小为更小
   font-size: smaller;
 }
 
+// 设置水平分割线的样式
 hr {
+	// 去掉边框
   border: 0;
+	// 设置顶部边框为1px宽的实线，颜色为分隔符颜色
   border-top: 1px solid $divider-color;
+	// 设置上下外边距为1.5em，左右自动居中
   margin: 1.5em auto;
 }
 
@@ -255,64 +302,77 @@ a.footnote {
   }
 }
 
+// 设置脚注的样式
 .footnotes {
+	// 设置顶部边框为1px宽的实线，颜色为分隔符颜色
   border-top: 1px solid $divider-color;
+	// 设置字体大小为小字体大小
   font-size: $small-font-size;
 }
 
-// Image
+//设置图片的基本样式
 img {
+	// 设置为块元素
   display: block;
+	// 设置最大宽度为100%
   max-width: 100%;
+	// 设置下边距为1em
   margin: 0 0 1em;
+	// 设置圆角为5px
   border-radius: 5px;
 }
 
-// Fixes images in popup boxes from Google Translate
+// 修正Google Translate弹出框中图片的最大宽度
 .gmnoprint img {
+	// 设置最大宽度为无限制
   max-width: none;
 }
 
-// Specify the color of the selection
+// 设置文本选择的颜色
 ::-moz-selection {
-//  color: $selection-color;
+  // 设置背景颜色为选择背景颜色
   background: $selection-background-color;
 }
 ::selection {
-//  color: $selection-color;
+  // 设置背景颜色为选择背景颜色
   background: $selection-background-color;
 }
 
-// Nicolas Gallagher's micro clearfix hack
-// http://nicolasgallagher.com/micro-clearfix-hack/
 .clearfix:before,
 .clearfix:after {
+	// 设置内容为空格
     content: " ";
+	// 设置为表格元素
     display: table;
 }
 
 .clearfix:after {
+	  // 清除浮动
     clear: both;
 }
 
-// Alignment
+// 设置文本对齐方式
 .center {
+	// 设置文本居中对齐
   text-align: center;
-
+	
+// 设置居中图片的样式
   &-image {
+		// 设置左右外边距为自动，使其居中
     margin: 0 auto;
+		// 设置为块元素
     display: block;
   }
 }
 
+// 设置文本右对齐的样式
 .right {
+	// 设置文本右对齐
   text-align: right
 }
 
-/*********************/
-/* LAYOUT / SECTIONS */
-/*********************/
 
+// 设置侧边栏包装器的样式
 //
 // .sidebar
 //
